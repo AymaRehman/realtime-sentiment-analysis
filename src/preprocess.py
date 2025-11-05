@@ -5,9 +5,9 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
 # Download NLTK resources (run once)
-nltk.download('punkt')  # Punkt tokenizer models for sentence and word tokenization
-nltk.download('wordnet')  # WordNet lexical database for word lemmatization and meaning or definitions
-nltk.download('stopwords')  # A list of common stopwords for text filtering (e.g., "the", "is", "and")
+nltk.download('punkt', quiet=True)  # Punkt tokenizer models for sentence and word tokenization
+nltk.download('wordnet', quiet=True)  # WordNet lexical database for word lemmatization and meaning or definitions
+nltk.download('stopwords', quiet=True)  # A list of common stopwords for text filtering (e.g., "the", "is", "and")
 
 def clean_tweet(text):
     """
