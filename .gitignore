@@ -1,0 +1,11 @@
+# macOS system files
+.DS_Store
+
+# Virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+
+# Configs or secrets
+config.json
