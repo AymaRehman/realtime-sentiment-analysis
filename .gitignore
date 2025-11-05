@@ -1,11 +1,23 @@
-# macOS system files
+*
+# Byte-compiled / caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual env
+venv/
+.env
+.env.*
+
+# Data
+data/*.json
+data/*.csv
+
+# VSCode
+.vscode/
+
+# macOS
 .DS_Store
 
-# Virtual environment
-venv/
-
-# Python cache files
-__pycache__/
-
-# Configs or secrets
-config.json
+# Jupyter
+.ipynb_checkpoints/
