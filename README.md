@@ -24,12 +24,15 @@ Supports multilingual sentiment detection, translation of unsupported languages 
 git clone https://github.com/AymaRehman/realtime-sentiment-analysis
 cd realtime-sentiment
 ```
+2. Python version: Make sure you are using Python 3.11.14.
+>  ⚠️ Using other versions may cause snscrape import issues.  
+>  GitHub Codespaces comes preconfigured with 3.11.14, so you can skip this step there.
 
-2. Create a virtual environment and install dependencies:
+3. Create a virtual environment and install dependencies:
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+python3.11 -m venv venv
+source venv/bin/activate  
 pip install -r requirements.txt
 ```
 
@@ -37,7 +40,6 @@ pip install -r requirements.txt
 
 ## Dependencies
 
-- Python 3.8+ (recommended)
 - snscrape
 - pandas
 - matplotlib
@@ -53,3 +55,4 @@ pip install -r requirements.txt
 ## License
 
 MIT License
+
