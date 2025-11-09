@@ -3,7 +3,12 @@
 A Python tool that fetches tweets on any topic and performs sentiment analysis in real-time.  
 Supports multilingual sentiment detection, translation of unsupported languages via the OpenAI API, and visualization of results.
 
----
+---  
+  
+## ⚠️ Project on hold!    
+Snscrape fails to work. Until I figure out what to replace snscrape with (perhaps X Developer Official API), project shall remain on hold.   
+  
+---  
 
 ## Features
 
@@ -55,4 +60,5 @@ pip install -r requirements.txt
 ## License
 
 MIT License
+
 
