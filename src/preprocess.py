@@ -5,15 +5,9 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
 # Download NLTK resources (run once)
-nltk.download(
-    "punkt", quiet=True
-)  # Punkt tokenizer models for sentence and word tokenization
-nltk.download(
-    "wordnet", quiet=True
-)  # WordNet lexical database for word lemmatization and meaning or definitions
-nltk.download(
-    "stopwords", quiet=True
-)  # A list of common stopwords for text filtering (e.g., "the", "is", "and")
+nltk.download("punkt", quiet=True)
+nltk.download("wordnet", quiet=True)
+nltk.download("stopwords", quiet=True)
 
 
 def clean_tweet(text):
@@ -23,18 +17,11 @@ def clean_tweet(text):
     - Lowercase
     - Remove punctuation
     """
-    text = re.sub(
-        r"http\S+", "", text
-    )  # Remove URLs, \s+ means one or more non-whitespace characters
-    text = re.sub(
-        r"@\w+", "", text
-    )  # Remove mentions, \w+ means one or more word characters (letters, digits, or underscores)
-    text = re.sub(r"#\w+", "", text)  # Remove hashtags
-    text = re.sub(
-        r"[^\w\s]", "", text
-    )  # Remove punctuation, ^ means everything except word characters and whitespace
-    text = text.lower().strip()  # Lowercase and strip leading/trailing whitespace
-    return text
+    text = re.sub(r"http\S+", "", text)
+    text = re.sub(r"@\w+", "", text)
+    text = re.sub(r"#\w+", "", text)
+    text = re.sub(r"[^\w\s]", "", text)
+    return text.lower().strip()
 
 
 def preprocess_tweets(tweets_list):
@@ -50,10 +37,15 @@ def preprocess_tweets(tweets_list):
 
     cleaned_tweets = []
     for tweet in tweets_list:
-        text = clean_tweet(tweet["content"])
-        tokens = word_tokenize(text)
-        tokens = [lemmatizer.lemmatize(t) for t in tokens if t not in stop_words]
-        cleaned_text = " ".join(tokens)
+        text = clean_tweet(tweet.get("content", ""))
+
+        if not text:  # minimal change: skip empty tweets early
+            cleaned_text = ""
+        else:
+            tokens = word_tokenize(text)
+            tokens = [lemmatizer.lemmatize(t) for t in tokens if t not in stop_words]
+            cleaned_text = " ".join(tokens)
+
         cleaned_tweets.append(
             {
                 "id": tweet.get("id", ""),
@@ -62,4 +54,5 @@ def preprocess_tweets(tweets_list):
                 "cleaned_content": cleaned_text,
             }
         )
+
     return cleaned_tweets
