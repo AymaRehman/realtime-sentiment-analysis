@@ -4,9 +4,8 @@ A Python tool that processes tweets and performs sentiment analysis.
 Originally designed for real-time scraping, the project now runs in offline mode using a local CSV/JSON dataset until I gain acces to X (Twitter) API.  
   
 ### 🚧 Temporary Change: Offline Mode Instead of Real-Time Mode  
-snscrape has stopped working due to X (Twitter) API changes (at least for my project), so real-time scraping is disabled for now.  
-The project still works fully — you simply load tweets from a local CSV or JSON file instead of fetching them live.  
-Later, when (or if) API access becomes available, the project will easily support real-time X (Twitter) fetching again.  
+`snscrape` broke after X (Twitter) changed their API, so live tweet fetching doesn't work right now, at least in this project.
+Everything else still works fine though. Just load the tweets from a local CSV or JSON file and it's good to go. If API access becomes an option again down the line, switching back to real-time mode should be straightforward.
   
 ---
 
